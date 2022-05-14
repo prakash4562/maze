@@ -1,0 +1,65 @@
+
+      <%#= render "users/shared/links" %>
+
+<div class="body">
+  <div class="d-flex", style="padding-left: 40px; padding-top: 20px">
+    <div style="background-color: white; padding: 8px; border-radius: 10px;"><%= image_tag("icons/Vector.png") %></div>
+    <div><h2 style="font-family: 'Inria Sans', sans-serif; color: white; font-weight: bold; margin-left: 15px">Maze</h2></div>
+  </div>
+
+  <div style="margin: 5px">
+    <%= image_tag("photos/line.png") %>
+  </div>
+
+  <div style="display: flex; justify-content: center; margin-top: 10px">
+    <div class="login">
+      <p style="color: #FFFFFF; padding-left: 20px; padding-top: 50px; font-size: 30px; letter-spacing: 2px; padding-bottom: 20px">Login</p>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+      <div class="d-flex", style="padding-left: 20px; margin-bottom: 40px">
+        <div>
+            <div class="form-group", style="margin-right: 50px">
+              <%= f.label :email, style: "color: #FFFFFF" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+            </div>
+        </div>
+      </div>
+
+      <div class="d-flex", style="padding-left: 20px; margin-bottom: 40px">
+        <div>
+            <div class="form-group", style="margin-right: 50px">
+              <%= f.label :password, style: "color: #FFFFFF" %>
+              <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+            </div>
+        </div>
+      </div>
+      <div>
+        <% if devise_mapping.rememberable? %>
+      <div class="form-group form-check", style="padding-left: 20px; margin-bottom: 20px">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me, style: "color: #FFFFFF" %>
+          </div>
+        <% end %>
+      </div>
+
+      <div style="padding-left: 70px;">
+        <%= f.submit "Log in", class: "btn btn-primary", style: "margin: 10px; padding: 5px 50px" %>
+      </div>
+      <div style="padding-left: 20px; padding-bottom: 100px; padding-top: 20px;">
+        <strong style="color: #FFFFFF">Don't have an account?</strong>
+        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+          <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+          <% end %>
+        <% end %>
+        <%#= link_to "Sign-up", new_registration_path(resource_name) %>
+      </div>
+
+  <% end %>
+    </div>
+  </div>
+</div>
+
+

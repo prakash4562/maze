@@ -1,0 +1,93 @@
+<div class="body">
+  <div class="d-flex", style="padding-left: 40px; padding-top: 20px">
+    <div style="background-color: white; padding: 8px; border-radius: 10px;"><%= image_tag("icons/Vector.png") %></div>
+    <div><h2 style="font-family: 'Inria Sans', sans-serif; color: white; font-weight: bold; margin-left: 15px">Maze</h2></div>
+  </div>
+
+  <div style="margin: 5px">
+    <%= image_tag("photos/line.png") %>
+  </div>
+
+  <div class="create">
+    <p style="color: #FFFFFF; padding-left: 500px; padding-top: 50px; font-size: 30px; letter-spacing: 2px;">Create account</p>
+    <p style="color: #F9FAFB; padding-left: 500px; font-size: 15px;">For business, band or celebrity.</p>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="d-flex", style="padding-left: 500px; margin-bottom: 20px">
+
+    <div>
+          <div class="form-group", style="margin-right: 50px">
+            <%= f.label :email, style: "color: #FFFFFF" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter email address" %>
+          </div>
+      </div>
+      <div>
+          <div class="form-group">
+            <%= f.label :first_name, style: "color: #FFFFFF" %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Enter last name" %>
+          </div>
+      </div>
+    </div>
+
+      <div class="d-flex", style="padding-left: 500px; margin-bottom: 20px">
+
+        <div>
+          <div class="form-group", style="margin-right: 50px">
+            <%= f.label :Last_name, style: "color: #FFFFFF" %><br />
+            <%= f.text_field :lname, autofocus: true, autocomplete: "lname", placeholder: "Enter last name" %>
+          </div>
+        </div>
+        <div>
+          <div class="form-group">
+            <%= f.label :Mobile_number, style: "color: #FFFFFF" %><br />
+            <%= f.text_field :number, autofocus: true, autocomplete: "number", placeholder: "Enter mobile number" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex", style="padding-left: 500px; margin-bottom: 20px">
+
+        <div>
+          <div class="form-group", style="margin-right: 50px">
+            <%= f.label :Password, style: "color: #FFFFFF" %><br />
+            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "Choose password" %>
+          </div>
+        </div>
+        <div>
+          <div class="form-group">
+            <%= f.label :password_confirmation, style: "color: #FFFFFF" %><br />
+            <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "new-password", placeholder: "confirm password" %>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding-left: 500px;">
+        <%= f.submit "Sign up", class: "btn btn-primary", style: "margin: 10px; padding: 5px 50px" %>
+      </div>
+  <% end %>
+
+    <div style="padding-left: 500px; padding-bottom: 20px">
+        <strong style="color: #FFFFFF">Already have an account?</strong>
+      <%- if controller_name != 'sessions' %>
+        <%= link_to "Log in", new_session_path(resource_name) %><br />
+      <% end %>
+      </div>
+  </div>
+</div>
+
+<!--<h2>Sign up</h2>-->
+
+<%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%#= render "users/shared/error_messages", resource: resource %>
+
+
+
+
+
+<!--  <div class="actions">-->
+    <%#= f.submit "Sign up" %>
+<!--  </div>-->
+<%# end %>
+
+<%#= render "users/shared/links" %>
+<!--</div>-->

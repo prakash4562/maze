@@ -1,0 +1,150 @@
+<p style="color: green"><%= notice %></p>
+
+
+<div class="row" , style="width: 100vw">
+  <div class="col-2">
+    <div class="d-flex" , style="margin-left: 20px">
+      <%= image_tag "icons/Vector.png", style: "height: 34.3px; width: 32px; margin-right: 10px;" %>
+      <h3>Maze</h3>
+    </div>
+
+    <div style="margin: 30px auto 20px; margin-left: 30px">
+      <%= link_to posts_path do %>
+        <%= button_tag class: 'btn btn-primary', style: "width: 150px; padding: 10px" do %>
+          <%= image_tag 'icons/feed.png', style: "margin-right: 10px" %><span style="font-size: 20px">Feed</span>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div style="margin: 30px; padding: 20px">
+      <%= link_to edit_user_registration_path do %>
+        <div class="d-flex " , style="height: 15px;">
+          <%= image_tag 'icons/profile.png', style: "padding-right: 20px;" %>
+          <%= image_tag 'photos/Profile.png' %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= link_to members_path do %>
+      <div style="margin: 30px; padding: 20px">
+        <div class="d-flex" , style="height: 17px;">
+          <%= image_tag 'icons/manage_users.png', style: "padding-right: 20px;" %>
+          <%= image_tag 'photos/manage_users.png' %>
+        </div>
+      </div>
+    <% end %>
+
+
+    <div style="margin: 30px; padding: 20px">
+      <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
+        <div class="d-flex" , style="height: 15px;">
+          <%= image_tag 'icons/logout.png', style: "padding-right: 20px;" %>
+          <%= image_tag 'photos/Logout.png' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="container">
+      <div class="row" style="margin-bottom: 30px; margin-top: 20px">
+        <!--        <div class="col-4 d-flex">-->
+        <%#= image_tag("icons/Vector.png") %>
+        <!--          <h3 style="margin-left: 20px; margin-top: 10px;">Maze</h3>-->
+        <!--        </div>-->
+        <div class="col-8">
+          <div>
+            <%= image_tag "icons/Search.png", style: "margin-bottom:-60px; margin-left: 20px;" %>
+          </div>
+          <div class="form-group" , style="width: 900px">
+            <input style="margin-left: 10px; padding-left: 40px; border-radius: 10px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search for something here...">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="background-color: #F5F6F8; padding: 30px; border-radius: 20px; margin-bottom: 20px">
+      <%= render 'form', post: @post %>
+
+      <% @posts.to_a.reverse.each do |post| %>
+        <div class="box" style="background-color: white; border-radius: 15px; padding: 15px; margin-top: 30px;">
+          <%= link_to post, style: 'text-decoration: none; color: #212529' do %>
+            <div class="d-flex">
+              <div>
+                <%= image_tag "icons/Vector.png", style: "padding: 15px" %>
+              </div>
+              <div>
+                <h2 style="padding-top: 10px"><%= post.title %></h2>
+              </div>
+            </div>
+            <strong>Posted by <%= post.user.name %></strong>
+
+            <div class="d-flex">
+              <p style="margin-right: 5px">Posted in <%= time_ago_in_words(post.created_at) %>.<%= post.status %></p>
+              <p style="margin: 0 10px">.</p>
+            </div>
+            <div id="text" style="padding: 15px 5px;">
+              <p><%= post.content %></p>
+            </div>
+            <div id="comment" class="d-flex">
+              <p style="margin-right: 5px;">221</p>
+              <p>Likes</p>
+              <p style="margin: 0 20px; font-weight: bolder">.</p>
+              <p><%= pluralize post.comments.count, "Comment" %></p>
+            </div>
+            <div style="margin: 0 10px">
+              <hr>
+            </div>
+            <div class="d-flex">
+              <div class="d-flex">
+                <i class="fa fa-heart-o" aria-hidden="true" style="padding-top: 5px; margin-left: 10px"></i>
+                <p style="margin-left: 20px">Like</p>
+              </div>
+              <div class="d-flex" style="margin-left: 300px;">
+                <i class="fa fa-commenting-o" aria-hidden="true" style="padding-top: 5px;"></i>
+                <%= link_to "Comment", posts_path, style: "text-decoration: none; color: black; margin-left: 10px;" %>
+              </div>
+            </div>
+          <% end %>
+          <div style="margin: 0 10px 0 5px;">
+            <hr>
+          </div>
+
+          <%= render 'comments/form', post: post %>
+
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+  <div class="col-2" , style="padding: 10px">
+    <div class="d-flex">
+      <%= image_tag "photos/admin.jpg", style: "border-radius: 300px; height: 50px" %>
+      <div>
+        <span style="font-size: 20px; margin-left: 15px"><%= current_user.name %></span>
+        <p style="margin-left: 20px"><%= current_user.roles.pluck(:name) %></p>
+      </div>
+    </div>
+    <br>
+
+
+    <% if current_user.has_role? :admin %>
+      <div class="d-flex">
+        <p style="padding-top: 2px; padding-right: 120px">Users List</p>
+        <%= image_tag "photos/dots.png", style: "height: 30px" %>
+      </div>
+
+      <% @users = User.all %>
+      <% @users.each do |user| %>
+        <% if user.posts.any? %>
+          <div class="d-flex">
+            <div style="background-color: #F5F6F8; margin: 20px 10px; padding: 5px; border-radius: 30px">
+              <%= image_tag "icons/Vector.png" %>
+            </div>
+            <strong style="padding-top: 30px; color: #9FA0A3"><%= user.name %></strong>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+

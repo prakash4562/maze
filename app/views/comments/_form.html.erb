@@ -1,0 +1,18 @@
+<%= form_with(model: [post, post.comments.build]) do |form| %>
+  <div class="d-flex">
+    <div style="padding: 12px 10px; width: 1300px; margin-right: 15px">
+      <%= form.text_field :body, class: "form-control form-control-lg box", placeholder: "Write a comment", style: "border-radius: 10px; padding: 10px; background-color: #F5F6F8; font-size:17px;" %>
+    </div>
+<!--    <div style="padding-top: 11px">-->
+      <%#= form.submit "comment", class: "btn btn-primary btn-lg box-btn", style: "border-radius: 10px" %>
+<!--    </div>-->
+    <div style="padding-top: 11px">
+    <%= button_tag(class: "btn btn-primary btn-lg box-btn", type: "submit", style: "background-color: #EAF4FF;") do %>
+      <%= image_tag "icons/send.png" %>
+    <% end %>
+    </div>
+  </div>
+<% end %>
+
+
+

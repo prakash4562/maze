@@ -1,0 +1,15 @@
+<div class="comment-<%= comment.id %> container">
+  Posted by <%= comment.user.name %><br>
+  <% if comment.user == current_user %>
+  <%#= button_to "Edit", nil, remote: true %>
+  <%= button_to "Delete", [post, comment], method: :delete %>
+<!--    <div  class="d-none">-->
+      <%#= render 'comments/form', post: @post, comment: comment %>
+<!--    </div>-->
+  <% end %>
+  <div>
+    <%= comment.body %>
+  - Posted <%= time_ago_in_words(comment.created_at) %>
+  </div>
+<br>
+</div>

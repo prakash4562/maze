@@ -1,0 +1,40 @@
+<div class="body">
+  <div class="d-flex", style="padding-top: 10px; padding-left: 40px">
+    <div style="background-color: white; padding: 8px; border-radius: 10px;"><%= image_tag("icons/Vector.png") %></div>
+    <div><h2 style="font-family: 'Inria Sans', sans-serif; color: white; font-weight: bold; margin-left: 15px">Maze</h2></div>
+  </div>
+
+  <div style="margin: 20px">
+    <%= image_tag("photos/line.png") %>
+  </div>
+
+  <div style="display: flex; justify-content: center; font-size: 50px; margin-top: 200px">
+    <p style="font-family: 'Inria Sans', sans-serif; color: white; font-weight: bold;">
+      Social media shared today, tomorrow or by location
+    </p>
+  </div>
+  <div style="display: flex; justify-content: center; margin: 20px">
+    <p style="color: white; font-family: 'Source Sans Pro', sans-serif; font-size: 30px">Discover with Maze</p>
+  </div>
+  <div class="d-flex", style="display: flex; justify-content: center;">
+    <div>
+      <%= link_to "Create account", new_user_registration_path, class: "btn btn-primary", style: "border-radius: 5px; padding: 10px 60px" %>
+    </div>
+    <p style="color: white; margin: 5px 50px">or</p>
+    <div>
+      <%= link_to "Login", user_session_path, class: "btn btn-primary", style: "border-radius: 5px; padding: 10px 95px" %>
+    </div>
+  </div>
+</div>
+
+<%# if user_signed_in? %>
+<!--  <li><%#= link_to "Sign-out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } %></li>-->
+<!--  <li><%#= current_user.name %></li>-->
+
+<%# else %>
+<!--  <li><%#= link_to "Sign-in", new_user_session_path, class: "dropdown-item" %></li>-->
+<%# end %>
+
+
+
+

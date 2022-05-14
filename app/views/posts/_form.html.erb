@@ -1,0 +1,43 @@
+<div class="box" style="background-color: white; border-radius: 15px; padding: 15px;">
+  <%= form_with(model: post) do |form| %>
+    <div class="d-flex">
+      <%= image_tag "icons/Vector.png", style: "padding: 15px" %>
+      <div>
+        <%= form.text_field :title, value: current_user.name, type: :hidden %>
+      </div>
+      <div style="margin-top: 5px">
+        <%= form.text_field :content, placeholder: "What's happening here?", style: "padding: 15px; border: none; border-radius: 20px; background-color: #F5F6F8; width: 800px" %>
+      </div>
+    </div>
+    <div style="display: flex; gap: 30px; margin-top: 30px;">
+      <div style="display: flex; margin-top: 15px;">
+        <i class="fa fa-video-camera" style="font-size:18px; padding-top: 5px"></i>
+        <p style="margin-left: 10px;">Live Video</p>
+      </div>
+      <div style="display: flex;  margin-top: 15px">
+        <i class="fa fa-picture-o" style="font-size:18px; padding-top: 5px"></i>
+        <p style="margin-left: 10px;">Photo/Video</p>
+      </div>
+      <div style="display: flex;  margin-top: 15px;">
+        <i class="fa fa-smile-o" style="font-size:18px; padding-top: 5px"></i>
+        <p style="margin-left: 10px;">Smile</p>
+      </div>
+      <div style="padding-top: 12px">
+        <%= form.label :status %>
+        <%#= form.select :status, ['public', 'private', 'archived'] %>
+        <select name="post[status]" id="post_status" style="border: none; padding: 5px; border-radius: 10px; background-color: #F5F6F8">
+          <option value="public">public</option>
+          <option value="private">private</option>
+          <option value="archived">archived</option>
+        </select>
+      </div>
+      <div style="padding-left: 170px">
+        <%= form.submit class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
