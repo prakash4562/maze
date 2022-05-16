@@ -9,6 +9,14 @@ class MembersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def new
+    @user = User.new
+  end
+
+  def create
+
+  end
+
   def ban
     @user = User.find(params[:id])
     if @user.access_locked?

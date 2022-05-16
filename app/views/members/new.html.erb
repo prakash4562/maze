@@ -58,50 +58,35 @@
       </div>
     </div>
     <div class="container" style="background-color: #F5F6F8; padding: 30px; border-radius: 20px; margin-bottom: 20px">
-      <div class="d-flex">
-        <strong style="font-size: 25px">List of Users</strong>
 
-        <%= link_to new_member_path do %>
-          <%= button_tag class: 'btn btn-primary', style: "padding: 12px; border-radius: 20px; margin-left: 800px;" do %>
-            <%= image_tag 'icons/create.png' %><span style="padding: 5px 10px; font-size: 20px">Create Users</span>
-          <% end %>
-        <% end %>
-      </div>
+        <strong style="font-size: 25px">Add User</strong>
 
+      <%= form_with url: '/users', method: :post do |f| %>
       <div class="row">
-        <% @users.each do |user| %>
-          <div class="d-flex" , style="background-color: #FFFFFF; padding: 10px; margin: 20px 0px; border-radius: 10px">
-            <div class="col-2">
-              <div>
-                <%= image_tag "icons/Vector.png", style: "background-color: #F5F6F8; padding: 5px; border-radius: 30px" %>
-              </div>
-            </div>
-            <strong class="col-2" , style="font-size: 20px; color: #9FA0A3;">
-              <%= user.name %>
-            </strong>
+        <div class="col-6">
+          <%= f.text_field :name, class: 'form-control form-control-lg', placeholder: 'First name', style: "border-radius: 15px; margin: 40px 0px;" %>
+          <%= f.email_field :email, class: 'form-control form-control-lg', placeholder: 'Email id', style: "border-radius: 15px; margin: 40px 0px;" %>
+          <%= f.password_field :password, class: 'form-control form-control-lg', placeholder: 'Choose password', style: "border-radius: 15px; margin: 40px 0px;" %>
+        </div>
 
-            <strong class="col-2" , style="padding-top: 10px; color: #9FA0A3;">
-              <%= user.number %>
-            </strong>
-
-            <strong class="col-2" , style="padding-top: 10px; color: #9FA0A3;">
-              <%= user.email %>
-            </strong>
-
-            <div class="col-2" style="padding-left: 80px; padding-top: 10px;">
-              <% if ban_status(user) == "Activate" %>
-                <%= link_to ban_status(user), ban_member_path(user), method: :patch, style: "text-decoration: none; background: rgba(113, 190, 52, 0.15); padding: 10px 40px; border-radius: 20px; color: #71BE34; font-weight: 600;" %>
-              <% else %>
-                <%= link_to ban_status(user), ban_member_path(user), method: :patch, style: "text-decoration: none; background: rgba(245, 100, 100, 0.15); padding: 10px 40px; border-radius: 20px; color: #F56464; font-weight: 600;" %>
-              <% end %>
-            </div>
-            <div class="col-2" , style="padding-top: 5px; padding-left: 150px;">
-              <%= image_tag "photos/dots.png", style: "height: 30px" %>
-            </div>
-          </div>
-
-        <% end %>
+        <div class="col-6">
+          <%= f.text_field :lname, class: 'form-control form-control-lg', placeholder: 'Last name', style: "border-radius: 15px; margin: 40px 0px;" %>
+          <%= f.text_field :number, class: 'form-control form-control-lg', placeholder: 'Mobile number.', style: "border-radius: 15px; margin: 40px 0px;" %>
+          <%= f.password_field :confirm_password, class: 'form-control form-control-lg', placeholder: 'Confirm password', style: "border-radius: 15px; margin: 40px 0px;" %>
+        </div>
       </div>
+        <br>
+        <div>
+          Assign role
+        <%= f.radio_button :roles, 'admin' %>
+        <%= f.label :admin, 'Admin' %>
+
+          <%= f.radio_button :roles, 'user', checked: true %>
+          <%= f.label :user, 'user' %>
+
+        </div>
+        <%= f.submit 'Create user', class: "btn btn-outline-primary" %>
+        <% end %>
     </div>
   </div>
 </div>
