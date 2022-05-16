@@ -1,94 +1,94 @@
-<p style="color: green"><%= notice %></p>
+<!--<p style="color: green"><%#= notice %></p>-->
+
+<h1>Create user</h1>
+
+<!--<div class="row" , style="width: 100vw">-->
+<!--  <div class="col-2">-->
+<!--    <div class="d-flex" , style="margin-left: 20px">-->
+      <%#= image_tag "icons/Vector.png", style: "height: 34.3px; width: 32px; margin-right: 10px;" %>
+<!--      <h3>Maze</h3>-->
+<!--    </div>-->
+
+<!--    <div style="margin: 30px auto 20px; margin-left: 30px">-->
+      <%#= link_to posts_path do %>
+        <%#= button_tag class: 'btn btn-primary', style: "width: 150px; padding: 10px" do %>
+<!--          <%#= image_tag 'icons/feed.png', style: "margin-right: 10px" %><span style="font-size: 20px">Feed</span>-->
+        <%# end %>
+      <%# end %>
+<!--    </div>-->
+
+<!--    <div style="margin: 30px; padding: 20px">-->
+      <%#= link_to edit_user_registration_path do %>
+<!--        <div class="d-flex " , style="height: 15px;">-->
+          <%#= image_tag 'icons/profile.png', style: "padding-right: 20px;" %>
+          <%#= image_tag 'photos/Profile.png' %>
+<!--        </div>-->
+      <%# end %>
+<!--    </div>-->
+
+    <%#= link_to members_path do %>
+<!--      <div style="margin: 30px; padding: 20px">-->
+<!--        <div class="d-flex" , style="height: 17px;">-->
+          <%#= image_tag 'icons/manage_users.png', style: "padding-right: 20px;" %>
+          <%#= image_tag 'photos/manage_users.png' %>
+<!--        </div>-->
+<!--      </div>-->
+    <%# end %>
 
 
-<div class="row" , style="width: 100vw">
-  <div class="col-2">
-    <div class="d-flex" , style="margin-left: 20px">
-      <%= image_tag "icons/Vector.png", style: "height: 34.3px; width: 32px; margin-right: 10px;" %>
-      <h3>Maze</h3>
-    </div>
+<!--    <div style="margin: 30px; padding: 20px">-->
+      <%#= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
+<!--        <div class="d-flex" , style="height: 15px;">-->
+          <%#= image_tag 'icons/logout.png', style: "padding-right: 20px;" %>
+          <%#= image_tag 'photos/Logout.png' %>
+<!--        </div>-->
+      <%# end %>
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col-10">-->
+<!--    <div class="container">-->
+<!--      <div class="d-flex">-->
+<!--        <p style="font-size: 25px; font-weight: bold; color: #9FA0A3;">User Management</p>-->
+<!--        <div class="d-flex" , style="padding-left: 700px">-->
+          <%#= image_tag "photos/admin.jpg", style: "border-radius: 300px; height: 50px" %>
+<!--          <div>-->
+<!--            <span style="font-size: 20px; margin-left: 15px"><%#= current_user.name %></span>-->
+<!--            <p style="margin-left: 20px"><%#= current_user.roles.pluck(:name) %></p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="container" style="background-color: #F5F6F8; padding: 30px; border-radius: 20px; margin-bottom: 20px">-->
 
-    <div style="margin: 30px auto 20px; margin-left: 30px">
-      <%= link_to posts_path do %>
-        <%= button_tag class: 'btn btn-primary', style: "width: 150px; padding: 10px" do %>
-          <%= image_tag 'icons/feed.png', style: "margin-right: 10px" %><span style="font-size: 20px">Feed</span>
-        <% end %>
-      <% end %>
-    </div>
+<!--        <strong style="font-size: 25px">Add User</strong>-->
 
-    <div style="margin: 30px; padding: 20px">
-      <%= link_to edit_user_registration_path do %>
-        <div class="d-flex " , style="height: 15px;">
-          <%= image_tag 'icons/profile.png', style: "padding-right: 20px;" %>
-          <%= image_tag 'photos/Profile.png' %>
-        </div>
-      <% end %>
-    </div>
+      <%#= form_with url: '/users', method: :post do |f| %>
+<!--      <div class="row">-->
+<!--        <div class="col-6">-->
+          <%#= f.text_field :name, class: 'form-control form-control-lg', placeholder: 'First name', style: "border-radius: 15px; margin: 40px 0px;" %>
+          <%#= f.email_field :email, class: 'form-control form-control-lg', placeholder: 'Email id', style: "border-radius: 15px; margin: 40px 0px;" %>
+          <%#= f.password_field :password, class: 'form-control form-control-lg', placeholder: 'Choose password', style: "border-radius: 15px; margin: 40px 0px;" %>
+<!--        </div>-->
 
-    <%= link_to members_path do %>
-      <div style="margin: 30px; padding: 20px">
-        <div class="d-flex" , style="height: 17px;">
-          <%= image_tag 'icons/manage_users.png', style: "padding-right: 20px;" %>
-          <%= image_tag 'photos/manage_users.png' %>
-        </div>
-      </div>
-    <% end %>
+<!--        <div class="col-6">-->
+          <%#= f.text_field :lname, class: 'form-control form-control-lg', placeholder: 'Last name', style: "border-radius: 15px; margin: 40px 0px;" %>
+          <%#= f.text_field :number, class: 'form-control form-control-lg', placeholder: 'Mobile number.', style: "border-radius: 15px; margin: 40px 0px;" %>
+          <%#= f.password_field :password_confirmation, class: 'form-control form-control-lg', placeholder: 'Confirm password', style: "border-radius: 15px; margin: 40px 0px;" %>
+<!--        </div>-->
+<!--      </div>-->
+<!--        <br>-->
+<!--        <div>-->
+<!--          Assign role-->
+        <%#= f.radio_button :roles, 'admin' %>
+        <%#= f.label :admin, 'Admin' %>
 
+          <%#= f.radio_button :roles, 'user', checked: true %>
+          <%#= f.label :user, 'user' %>
 
-    <div style="margin: 30px; padding: 20px">
-      <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
-        <div class="d-flex" , style="height: 15px;">
-          <%= image_tag 'icons/logout.png', style: "padding-right: 20px;" %>
-          <%= image_tag 'photos/Logout.png' %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="col-10">
-    <div class="container">
-      <div class="d-flex">
-        <p style="font-size: 25px; font-weight: bold; color: #9FA0A3;">User Management</p>
-        <div class="d-flex" , style="padding-left: 700px">
-          <%= image_tag "photos/admin.jpg", style: "border-radius: 300px; height: 50px" %>
-          <div>
-            <span style="font-size: 20px; margin-left: 15px"><%= current_user.name %></span>
-            <p style="margin-left: 20px"><%= current_user.roles.pluck(:name) %></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container" style="background-color: #F5F6F8; padding: 30px; border-radius: 20px; margin-bottom: 20px">
-
-        <strong style="font-size: 25px">Add User</strong>
-
-      <%= form_with url: '/users', method: :post do |f| %>
-      <div class="row">
-        <div class="col-6">
-          <%= f.text_field :name, class: 'form-control form-control-lg', placeholder: 'First name', style: "border-radius: 15px; margin: 40px 0px;" %>
-          <%= f.email_field :email, class: 'form-control form-control-lg', placeholder: 'Email id', style: "border-radius: 15px; margin: 40px 0px;" %>
-          <%= f.password_field :password, class: 'form-control form-control-lg', placeholder: 'Choose password', style: "border-radius: 15px; margin: 40px 0px;" %>
-        </div>
-
-        <div class="col-6">
-          <%= f.text_field :lname, class: 'form-control form-control-lg', placeholder: 'Last name', style: "border-radius: 15px; margin: 40px 0px;" %>
-          <%= f.text_field :number, class: 'form-control form-control-lg', placeholder: 'Mobile number.', style: "border-radius: 15px; margin: 40px 0px;" %>
-          <%= f.password_field :confirm_password, class: 'form-control form-control-lg', placeholder: 'Confirm password', style: "border-radius: 15px; margin: 40px 0px;" %>
-        </div>
-      </div>
-        <br>
-        <div>
-          Assign role
-        <%= f.radio_button :roles, 'admin' %>
-        <%= f.label :admin, 'Admin' %>
-
-          <%= f.radio_button :roles, 'user', checked: true %>
-          <%= f.label :user, 'user' %>
-
-        </div>
-        <%= f.submit 'Create user', class: "btn btn-outline-primary" %>
-        <% end %>
-    </div>
-  </div>
-</div>
-
+<!--        </div>-->
+        <%#= f.submit 'Create user', class: "btn btn-outline-primary" %>
+        <%# end %>
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 

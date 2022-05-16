@@ -9,13 +9,19 @@ class MembersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
-    @user = User.new
-  end
+  # def new
+  #   @user = User.new
+  # end
 
-  def create
-
-  end
+  # def create
+  #   @user = User.new(user_params)
+  #   @user.add_role params[:id]
+  #   if @user.save!
+  #     redirect_to posts_path
+  #   else
+  #     redirect_to new
+  #   end
+  # end
 
   def ban
     @user = User.find(params[:id])
@@ -27,5 +33,9 @@ class MembersController < ApplicationController
     redirect_to members_path
   end
 
+  private
 
+  def user_params
+    params.require(:user).permit(:name, :lname, :email, :number, :password, :password_confirmation)
+  end
 end
