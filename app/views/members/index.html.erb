@@ -79,46 +79,40 @@
         <button type="button" class="btn btn-primary btn-lg" style="margin-left: 800px">Create Users</button>
       </div>
 
+      <div class="row">
       <% @users.each do |user| %>
-        <div class="d-flex" , style="background-color: #FFFFFF; margin: 15px; padding: 10px; border-radius: 10px">
-          <div style="background-color: #F5F6F8; padding: 5px; border-radius: 30px">
-            <%= image_tag "icons/Vector.png" %>
-          </div>
-          <div class="d-flex" , style="padding-top: 10px">
+          <div class="d-flex", style="background-color: #FFFFFF; padding: 10px; margin: 20px 0px; border-radius: 10px">
+          <div class="col-2">
             <div>
-              <strong style="padding: 0px 60px;">
+              <%= image_tag "icons/Vector.png", style: "background-color: #F5F6F8; padding: 5px; border-radius: 30px" %>
+            </div>
+          </div>
+              <strong class="col-2", style="font-size: 20px; color: #9FA0A3;">
                 <%= user.name %>
               </strong>
-            </div>
 
-            <div>
-              <strong style="padding: 0px 60px;">
+              <strong class="col-2", style="padding-top: 10px; color: #9FA0A3;">
                 <%= user.number %>
               </strong>
-            </div>
 
-            <div>
-              <strong style="padding: 0px 60px;">
+              <strong class="col-2", style="padding-top: 10px; color: #9FA0A3;">
                 <%= user.email %>
               </strong>
-            </div>
 
+          <div class="col-2" style="padding-left: 80px; padding-top: 10px;">
             <% if ban_status(user) == "Activate" %>
-              <%= link_to ban_member_path(user), method: :patch do %>
-                <%= button_tag ban_status(user), class: "btn btn-outline-success", style: "margin: 0px 70px;" %>
-              <% end %>
+              <%= link_to ban_status(user), ban_member_path(user), method: :patch, style: "text-decoration: none; background: rgba(113, 190, 52, 0.15); padding: 10px 40px; border-radius: 20px; color: #71BE34; font-weight: 600;" %>
             <% else %>
-              <%= link_to ban_member_path(user), method: :patch do %>
-                <%= button_tag ban_status(user), class: "btn btn-outline-danger", style: "margin: 0px 70px;" %>
-              <% end %>
+              <%= link_to ban_status(user), ban_member_path(user), method: :patch, style: "text-decoration: none; background: rgba(245, 100, 100, 0.15); padding: 10px 40px; border-radius: 20px; color: #F56464; font-weight: 600;" %>
             <% end %>
-            <div>
-              <%= image_tag "photos/dots.png", style: "height: 30px" %>
-            </div>
-
           </div>
-        </div>
+          <div class="col-2", style="padding-top: 5px; padding-left: 150px;">
+              <%= image_tag "photos/dots.png", style: "height: 30px" %>
+          </div>
+          </div>
+
       <% end %>
+      </div>
     </div>
   </div>
 </div>
