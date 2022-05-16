@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   def index
+
     @users = User.order(created_at: :desc)
 
   end
@@ -17,4 +18,6 @@ class MembersController < ApplicationController
     end
     redirect_to members_path
   end
+
+
 end
