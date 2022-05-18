@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resource :likes, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
 
 
   devise_for :users, controllers: {
