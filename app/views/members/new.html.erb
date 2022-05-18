@@ -51,7 +51,7 @@
           <%= image_tag "photos/admin.jpg", style: "border-radius: 300px; height: 50px" %>
           <div>
             <span style="font-size: 20px; margin-left: 15px"><%= current_user.name %></span>
-            <p style="margin-left: 20px"><%= current_user.roles.pluck(:name) %></p>
+            <p style="margin-left: 20px"><%= current_user.roles.pluck(:name).join(",").capitalize %></p>
           </div>
         </div>
       </div>
@@ -70,18 +70,19 @@
 
         <div class="col-6">
           <%= f.text_field :lname, class: 'form-control form-control-lg', placeholder: 'Last name', style: "border-radius: 15px; margin: 40px 0px;" %>
-          <%= f.text_field :number, class: 'form-control form-control-lg', placeholder: 'Mobile number.', style: "border-radius: 15px; margin: 40px 0px;" %>
+          <%= f.text_field :number, class: 'form-control form-control-lg', placeholder: 'Mobile number.', style: "border-radius: 15px; margin: 40px 0px;", maxlength: "10", size: "10"  %>
           <%= f.password_field :password_confirmation, class: 'form-control form-control-lg', placeholder: 'Confirm password', style: "border-radius: 15px; margin: 40px 0px;" %>
         </div>
       </div>
         <br>
         <div>
           Assign role
-        <%= f.radio_button :roles, 'admin' %>
-        <%= f.label :admin, 'Admin' %>
+        <%= f.radio_button :roles, 'Role1' %>
+        <%= f.label :Role1, 'Role-1' %>
 
-          <%= f.radio_button :roles, 'user', checked: true %>
-          <%= f.label :user, 'user' %>
+          <%= f.radio_button :roles, 'Role2' %>
+          <%= f.label :Role2, 'Role-2' %>
+
 
         </div>
         <%= f.submit 'Create user', class: "btn btn-outline-primary" %>
