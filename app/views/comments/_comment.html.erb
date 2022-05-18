@@ -9,7 +9,20 @@
   <% end %>
   <div>
     <%= comment.body %>
-  - Posted <%= time_ago_in_words(comment.created_at) %>
+  - Posted <%= time_ago_in_words(comment.created_at) %><br>
+    <%= comment.likes.count %> Likes
+    <div>
+      <% like = current_user.likes.find_by(likeable: comment) %>
+      <% if like.nil? %>
+        <%= button_to likes_path, params: { like: { likeable_id: comment.id, likeable_type: Comment }}, method: :post do %>
+          <strong>Like</strong>
+        <% end %>
+      <% else %>
+        <%= button_to like_path(like), method: :delete do %>
+          <strong>Unlike</strong>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 <br>
 </div>
