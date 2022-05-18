@@ -21,7 +21,6 @@ class User < ApplicationRecord
             format: { with: VALID_NUMBER_REGEX }
 
 
-
   after_create :assign_default_role
 
   def assign_default_role

@@ -21,6 +21,7 @@ class MembersController < ApplicationController
     if current_user.roles.first.name == "admin"
       @user = User.new
     else
+
       redirect_to posts_path
     end
   end

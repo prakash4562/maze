@@ -16,7 +16,7 @@
       <p style="color: #FFFFFF; padding-left: 20px; padding-top: 50px; font-size: 30px; letter-spacing: 2px; padding-bottom: 20px">Login</p>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
+        <%= render "users/shared/error_messages", resource: resource %>
       <div class="d-flex", style="padding-left: 20px; margin-bottom: 40px">
         <div>
             <div class="form-group", style="margin-right: 50px">
