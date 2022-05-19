@@ -88,13 +88,23 @@
               <%= user.email %>
             </strong>
 
+            <% if (user.has_role? :admin)  %>
             <div class="col-2" style="padding-left: 80px; padding-top: 10px;">
               <% if ban_status(user) == "Activate" %>
-                <%= link_to ban_status(user), ban_member_path(user), method: :patch, style: "text-decoration: none; background: rgba(113, 190, 52, 0.15); padding: 10px 40px; border-radius: 20px; color: #71BE34; font-weight: 600;" %>
+                <% link_to ban_status(user), ban_member_path(user), method: :patch, style: "text-decoration: none; background: rgba(113, 190, 52, 0.15); padding: 10px 40px; border-radius: 20px; color: #71BE34; font-weight: 600;" %>
               <% else %>
-                <%= link_to ban_status(user), ban_member_path(user), method: :patch, style: "text-decoration: none; background: rgba(245, 100, 100, 0.15); padding: 10px 40px; border-radius: 20px; color: #F56464; font-weight: 600;" %>
+                <% link_to ban_status(user), ban_member_path(user), method: :patch, style: "text-decoration: none; background: rgba(245, 100, 100, 0.15); padding: 10px 40px; border-radius: 20px; color: #F56464; font-weight: 600;" %>
               <% end %>
             </div>
+              <% else %>
+              <div class="col-2" style="padding-left: 80px; padding-top: 10px;">
+                <% if ban_status(user) == "Activate" %>
+                  <%= link_to ban_status(user), ban_member_path(user), method: :patch, style: "text-decoration: none; background: rgba(113, 190, 52, 0.15); padding: 10px 40px; border-radius: 20px; color: #71BE34; font-weight: 600;" %>
+                <% else %>
+                  <%= link_to ban_status(user), ban_member_path(user), method: :patch, style: "text-decoration: none; background: rgba(245, 100, 100, 0.15); padding: 10px 40px; border-radius: 20px; color: #F56464; font-weight: 600;" %>
+                <% end %>
+              </div>
+              <% end %>
             <div class="col-2" , style="padding-top: 5px; padding-left: 150px;">
               <%= image_tag "photos/dots.png", style: "height: 30px" %>
             </div>
