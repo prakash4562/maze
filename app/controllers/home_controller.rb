@@ -5,7 +5,7 @@ class HomeController < ApplicationController
       redirect_to posts_path
     else
       flash[:notice] = "#{current_user.name} logged out successfully."
-      redirect_to root_path
+      redirect_to new_user_session_path
     end
   end
 end

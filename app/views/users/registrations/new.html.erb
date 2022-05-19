@@ -14,26 +14,26 @@
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Error messages!</strong><br>
-        <% resource.errors.full_messages.each do |msg| %>
-          <div><%= msg %></div>
-        <% end %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+<!--      <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
+<!--        <strong>Error messages!</strong><br>-->
+        <%# resource.errors.full_messages.each do |msg| %>
+<!--          <div><%#= msg %></div>-->
+        <%# end %>
+<!--        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>-->
+<!--      </div>-->
 
       <div class="d-flex", style="padding-left: 500px; margin-bottom: 20px">
 
     <div>
           <div class="form-group", style="margin-right: 50px">
             <%= f.label :email, style: "color: #FFFFFF" %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter email address" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter email address", style: "padding: 5px; border-radius: 5px" %>
           </div>
       </div>
       <div>
           <div class="form-group">
             <%= f.label :first_name, style: "color: #FFFFFF" %><br />
-            <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Enter last name" %>
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Enter last name", style: "padding: 5px; border-radius: 5px" %>
           </div>
       </div>
     </div>
@@ -43,13 +43,13 @@
         <div>
           <div class="form-group", style="margin-right: 50px">
             <%= f.label :Last_name, style: "color: #FFFFFF" %><br />
-            <%= f.text_field :lname, autofocus: true, autocomplete: "lname", placeholder: "Enter last name" %>
+            <%= f.text_field :lname, autofocus: true, autocomplete: "lname", placeholder: "Enter last name", style: "padding: 5px; border-radius: 5px" %>
           </div>
         </div>
         <div>
           <div class="form-group">
             <%= f.label :Mobile_number, style: "color: #FFFFFF" %><br />
-            <%= f.text_field :number, autofocus: true, autocomplete: "number", maxlength: "10", size: "10", placeholder: "Enter mobile number", style: "width: 250px" %>
+            <%= f.text_field :number, autofocus: true, autocomplete: "number", maxlength: "10", size: "10", placeholder: "Enter mobile number", style: "width: 250px; padding: 5px; border-radius: 5px" %>
           </div>
         </div>
       </div>
@@ -59,13 +59,13 @@
         <div>
           <div class="form-group", style="margin-right: 50px">
             <%= f.label :Password, style: "color: #FFFFFF" %><br />
-            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "Choose password" %>
+            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "Choose password", style: "padding: 5px; border-radius: 5px" %>
           </div>
         </div>
         <div>
           <div class="form-group">
             <%= f.label :password_confirmation, style: "color: #FFFFFF" %><br />
-            <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "new-password", placeholder: "confirm password" %>
+            <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "new-password", placeholder: "confirm password", style: "padding: 5px; border-radius: 5px" %>
           </div>
         </div>
       </div>

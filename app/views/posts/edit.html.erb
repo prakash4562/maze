@@ -1,3 +1,6 @@
+<%= link_to post_path(@post) do %>
+  <%= image_tag "photos/back.png", style: "height: 50px; padding: 5px" %>
+<% end %>
 <h1>Editing post</h1>
 
 <%= render "form", post: @post %>
@@ -5,6 +8,10 @@
 <br>
 
 <div>
-  <%= link_to "Show this post", @post %> |
-  <%= link_to "Back to posts", posts_path %>
+  <%#= link_to post_path(@post) do %>
+    <%#= image_tag "photos/back.png", style: "height: 50px; padding: 5px" %>
+  <%# end %>
+<!--  <%#= link_to "Show this post", @post %> |-->
+
+  <%#= link_to "Back to posts", posts_path %>
 </div>
