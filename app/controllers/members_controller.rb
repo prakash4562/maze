@@ -4,6 +4,10 @@ class MembersController < ApplicationController
   def index
     if current_user.roles.first.name == "admin"
       @users = User.order(created_at: :desc)
+      respond_to do |format|
+        format.html
+        format.csv { send_data @users.to_csv }
+      end
     else
       redirect_to posts_path
     end
