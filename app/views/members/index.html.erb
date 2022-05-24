@@ -39,7 +39,7 @@
 <!--    </div>-->
 
 <!--    <div>-->
-      <%#= link_to "Export users", members_path(format: :csv), class: "btn btn-primary btn-lg" %>
+      <%= link_to "Export users", members_path(format: :csv), class: "btn btn-primary btn-lg" %>
 <!--    </div>-->
 
     <% if current_user.has_role? :admin %>

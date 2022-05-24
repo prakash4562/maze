@@ -34,10 +34,11 @@
     <% end %>
 
     <% if current_user.has_role? :admin %>
-        <%= link_to report_path do %>
-        <button class="btn btn-primary" type="submit", style="padding: 5px 40px; margin-left: 45px"><span style="font-size: 20px;">Report</span></button>
-        <% end %>
+      <%= link_to report_path do %>
+        <button class="btn btn-primary" type="submit" , style="padding: 5px 40px; margin-left: 45px">
+          <span style="font-size: 20px;">Report</span></button>
       <% end %>
+    <% end %>
 
     <div style="margin: 30px; padding: 20px">
       <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
@@ -51,7 +52,7 @@
   <div class="col-10">
     <div class="container">
       <div class="d-flex">
-        <div class="d-flex", style="border: 1px solid rgba(51, 51, 51, 0.3); height: 50px; padding: 10px; border-radius: 10px; width: 900px", >
+        <div class="d-flex" , style="border: 1px solid rgba(51, 51, 51, 0.3); height: 50px; padding: 10px; border-radius: 10px; width: 900px" ,>
           <div>
             <%= image_tag 'icons/search.png', style: "margin-right: 20px " %>
           </div>
@@ -67,8 +68,124 @@
       </div>
     </div>
     <div class="container" style="background-color: #F5F6F8; padding: 30px; border-radius: 20px; margin-bottom: 20px">
-      <h1>Report</h1>
+
+      <div class="d-flex">
+        <div style="margin-right: 50px;">
+          <div class="d-flex justify-content-center">
+            <div style="border-radius: 50px; background-color: #FFFFFF; width: 95px; height: 95px; margin-bottom: -40px; z-index: 1;">
+              <div style="width: 75px; height: 75px; border-radius: 50px; margin-top: 10px; margin-left: 10px; background-image: linear-gradient(#377DFF, #2DC9EA);">
+                <%= image_tag 'photos/report1.png', style: "margin-right: -26px; margin-top: 15px; margin-left: 20px" %>
+                <%= image_tag 'photos/report2.png', style: "margin-right: 6px; margin-top: 25px" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <div style="background-color: #FFFFFF; padding: 50px; border-radius: 20px">
+              <h4 class="d-flex justify-content-center">All Users</h4>
+              <p class="d-flex justify-content-center", style="color: #9FA0A3">Posts, comments and likes count</p>
+
+              <div class="my-5">
+                <form name="forms">
+                  <div class="d-flex">
+                    <div style="margin-left: 20px">
+                      <input type="radio" name="download" value="excel" id="download_excel">
+                      <label for="download_excel" style="">Excel</label>
+                    </div>
+                    <div style="padding-left: 80px">
+                      <input type="radio" name="download" value="csv" id="download_csv">
+                      <label for="download_csv" style="">CSV</label>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="my-5 d-flex justify-content-center">
+                    <input type="button" value="Download" id="download_btn" class="btn btn-primary px-5 py-2">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-right: 50px;">
+          <div class="d-flex justify-content-center">
+            <div style="border-radius: 50px; background-color: #FFFFFF; width: 95px; height: 95px; margin-bottom: -40px; z-index: 1;">
+              <div style="width: 75px; height: 75px; border-radius: 50px; margin-top: 10px; margin-left: 10px; background-image: linear-gradient(#377DFF, #2DC9EA);">
+                <%= image_tag 'photos/report1.png', style: "margin-right: -26px; margin-top: 15px; margin-left: 20px" %>
+                <%= image_tag 'photos/report2.png', style: "margin-right: 6px; margin-top: 25px" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <div style="background-color: #FFFFFF; padding: 50px; border-radius: 20px">
+              <h4 class="d-flex justify-content-center">All Users</h4>
+              <p class="d-flex justify-content-center", style="color: #9FA0A3">Having more than 10 posts, users</p>
+
+              <div class="my-5">
+                <form name="forms">
+                  <div class="d-flex">
+                    <div style="margin-left: 20px">
+                      <input type="radio" name="download" value="excel" id="download_excel">
+                      <label for="download_excel" style="">Excel</label>
+                    </div>
+                    <div style="padding-left: 80px">
+                      <input type="radio" name="download" value="csv" id="download_csv">
+                      <label for="download_csv" style="">CSV</label>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="my-5 d-flex justify-content-center">
+                    <input type="button" value="Download" id="download_btn" class="btn btn-primary px-5 py-2">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="d-flex justify-content-center">
+            <div style="border-radius: 50px; background-color: #FFFFFF; width: 95px; height: 95px; margin-bottom: -40px; z-index: 1;">
+              <div style="width: 75px; height: 75px; border-radius: 50px; margin-top: 10px; margin-left: 10px; background-image: linear-gradient(#377DFF, #2DC9EA);">
+                <%= image_tag 'photos/report1.png', style: "margin-right: -26px; margin-top: 15px; margin-left: 20px" %>
+                <%= image_tag 'photos/report2.png', style: "margin-right: 6px; margin-top: 25px" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <div style="background-color: #FFFFFF; padding: 50px; border-radius: 20px">
+              <h4 class="d-flex justify-content-center">Post-wise reports</h4>
+              <p class="d-flex justify-content-center", style="color: #9FA0A3">Title/description, comments, likes</p>
+
+              <div class="my-5">
+                <form name="forms">
+                  <div class="d-flex">
+                    <div style="margin-left: 20px">
+                      <input type="radio" name="download" value="excel" id="download_excel">
+                      <label for="download_excel" style="">Excel</label>
+                    </div>
+                    <div style="padding-left: 80px">
+                      <input type="radio" name="download" value="csv" id="download_csv">
+                      <label for="download_csv" style="">CSV</label>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="my-5 d-flex justify-content-center">
+                    <input type="button" value="Download" id="download_btn" class="btn btn-primary px-5 py-2">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </div>
 </div>
+
+
 
