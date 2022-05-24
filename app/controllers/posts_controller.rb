@@ -3,6 +3,9 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   # GET /posts or /posts.json
+    def demo
+
+    end
   def index
     @post = Post.new
     if current_user.roles.first.name == "admin"

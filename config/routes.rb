@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     get :ban
     end
   end
+  get 'posts/report', to: 'members#report', as: 'report'
+  get 'posts/demo', to: 'posts#demo', as: 'demo'
+
   resources :posts do
     resources :comments
   end

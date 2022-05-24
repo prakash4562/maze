@@ -7,11 +7,13 @@ class MembersController < ApplicationController
       respond_to do |format|
         format.html
         format.csv { send_data @users.to_csv }
+        # format.xls { send_data @users.to_csv }
       end
     else
       redirect_to posts_path
     end
   end
+
 
   def edit
     if current_user.roles.first.name == "admin"
