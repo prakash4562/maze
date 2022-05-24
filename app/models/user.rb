@@ -1,4 +1,3 @@
-require 'csv'
 class User < ApplicationRecord
   rolify
   # Include default devise modules. Others available are:
@@ -26,13 +25,15 @@ class User < ApplicationRecord
   def assign_default_role
     self.add_role(:newuser) if self.roles.blank?
   end
-  def self.to_csv
-    attributes = %w{ email name lname number }
 
+  def self.to_csv
     CSV.generate(headers: true) do |csv|
+      headers = ['Name', 'Posts', 'Comments', 'Likes']
+      CSV.generate_line headers
+      csv << headers
 
       all.each do |user|
-        csv << attributes.map{|attr| user.send(attr) }
+        csv << [name = "#{user['name']} #{user['lname']}", user.posts.length, user.comments.length, user.likes.length]
       end
     end
   end

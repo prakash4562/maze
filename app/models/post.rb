@@ -1,4 +1,3 @@
-require 'csv'
 
 class Post < ApplicationRecord
   include Visible
@@ -9,13 +8,13 @@ class Post < ApplicationRecord
   has_many :likes, as: :likeable, dependent: :destroy
 
   def self.to_csv
-    attributes = %w{ id title content }
-
     CSV.generate(headers: true) do |csv|
-      csv << attributes
+      headers = ['name', 'Content', 'Likes']
+      CSV.generate_line headers
+      csv << headers
 
       all.each do |post|
-        csv << attributes.map { |attr| post.send(attr) }
+        csv << [name = "#{post['title']}", "#{post['content']}", post.likes.length]
       end
     end
   end
