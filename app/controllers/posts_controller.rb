@@ -9,13 +9,19 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     if current_user.roles.first.name == "admin"
-    # @posts = Post.all
-    @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true)
+    @posts = Post.all
     respond_to do |format|
-      format.html
-      format.csv { send_data @q.result.to_csv }
+        format.html
+        format.csv { send_data @posts.to_csv }
+        format.xls { send_data @posts.to_csv }
     end
+
+    # @q = Post.ransack(params[:q])
+    # @posts = @q.result(distinct: true)
+    # respond_to do |format|
+    #   format.html
+    #   format.csv { send_data @q.result.to_csv }
+    # end
     else
       @posts = Post.where(status: :public).or(Post.where(users: current_user))
     end

@@ -60,27 +60,27 @@
     <div class="col-8">
       <div class="container">
         <div class="row" style="margin-bottom: 30px; margin-top: 20px">
-          <!--        <div class="col-4 d-flex">-->
-          <%#= image_tag("icons/Vector.png") %>
-          <!--          <h3 style="margin-left: 20px; margin-top: 10px;">Maze</h3>-->
-          <!--        </div>-->
-<!--          <div class="col-8">-->
-<!--            <div>-->
-              <%#= image_tag "icons/Search.png", style: "margin-bottom:-60px; margin-left: 20px;" %>
-<!--            </div>-->
-<!--            <div class="form-group" , style="width: 900px">-->
-<!--              <input style="margin-left: 10px; padding-left: 40px; border-radius: 10px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search for something here...">-->
-<!--            </div>-->
-<!--          </div>-->
-
-          <%= search_form_for @q, url: :posts do |form| %>
-        <div style="margin: 5px 10px">
-          <div class="form-group d-flex">
-          <%= form.text_field :title_cont, class: "form-control", placeholder: "Search post by title..." %>
-            <%= form.submit 'Search post', class: "btn btn-primary", style: "margin-left: 5px" %>
+                  <div class="col-4 d-flex">
+          <%= image_tag("icons/Vector.png") %>
+                    <h3 style="margin-left: 20px; margin-top: 10px;">Maze</h3>
+                  </div>
+          <div class="col-8">
+            <div>
+              <%= image_tag "icons/Search.png", style: "margin-bottom:-60px; margin-left: 20px;" %>
+            </div>
+            <div class="form-group" , style="width: 600px">
+              <input style="margin-left: 10px; padding-left: 40px; border-radius: 10px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search for something here...">
+            </div>
           </div>
-        </div>
-          <% end %>
+
+          <%#= search_form_for @q, url: :posts do |form| %>
+<!--        <div style="margin: 5px 10px">-->
+<!--          <div class="form-group d-flex">-->
+          <%#= form.text_field :title_cont, class: "form-control", placeholder: "Search post by title..." %>
+            <%#= form.submit 'Search post', class: "btn btn-primary", style: "margin-left: 5px" %>
+<!--          </div>-->
+<!--        </div>-->
+          <%# end %>
 
         </div>
       </div>

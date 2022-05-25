@@ -9,12 +9,12 @@ class Post < ApplicationRecord
 
   def self.to_csv
     CSV.generate(headers: true) do |csv|
-      headers = ['name', 'Content', 'Likes']
+      headers = ['name', 'Content', 'Comments', 'Likes']
       CSV.generate_line headers
       csv << headers
 
       all.each do |post|
-        csv << [name = "#{post['title']}", "#{post['content']}", post.likes.length]
+        csv << [name = "#{post['title']}", "#{post['content']}", post.comments.length, post.likes.length]
       end
     end
   end
