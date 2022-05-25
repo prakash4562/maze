@@ -83,7 +83,7 @@
           <div class="d-flex justify-content-center">
             <div style="background-color: #FFFFFF; padding: 50px; border-radius: 20px">
               <h4 class="d-flex justify-content-center">All Users</h4>
-              <p class="d-flex justify-content-center", style="color: #9FA0A3">Posts, comments and likes count</p>
+              <p class="d-flex justify-content-center" , style="color: #9FA0A3">Posts, comments and likes count</p>
 
               <div class="my-5">
                 <form name="forms">
@@ -93,7 +93,7 @@
                       <label for="download_excel" style="">Excel</label>
                     </div>
                     <div style="padding-left: 80px">
-                      <input type="radio" name="download" value="csv" id="download_csv">
+                      <input type="radio" name="download" value="csv" id="download_csv" checked>
                       <label for="download_csv" style="">CSV</label>
                     </div>
                   </div>
@@ -107,42 +107,42 @@
           </div>
         </div>
 
-<!--        <div style="margin-right: 50px;">-->
-<!--          <div class="d-flex justify-content-center">-->
-<!--            <div style="border-radius: 50px; background-color: #FFFFFF; width: 95px; height: 95px; margin-bottom: -40px; z-index: 1;">-->
-<!--              <div style="width: 75px; height: 75px; border-radius: 50px; margin-top: 10px; margin-left: 10px; background-image: linear-gradient(#377DFF, #2DC9EA);">-->
-                <%#= image_tag 'photos/report1.png', style: "margin-right: -26px; margin-top: 15px; margin-left: 22px" %>
-                <%#= image_tag 'photos/report2.png', style: "margin-right: 6px; margin-top: 25px" %>
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
+        <div style="margin-right: 50px;">
+          <div class="d-flex justify-content-center">
+            <div style="border-radius: 50px; background-color: #FFFFFF; width: 95px; height: 95px; margin-bottom: -40px; z-index: 1;">
+              <div style="width: 75px; height: 75px; border-radius: 50px; margin-top: 10px; margin-left: 10px; background-image: linear-gradient(#377DFF, #2DC9EA);">
+                <%= image_tag 'photos/report1.png', style: "margin-right: -26px; margin-top: 15px; margin-left: 22px" %>
+                <%= image_tag 'photos/report2.png', style: "margin-right: 6px; margin-top: 25px" %>
+              </div>
+            </div>
+          </div>
 
-<!--          <div class="d-flex justify-content-center">-->
-<!--            <div style="background-color: #FFFFFF; padding: 50px; border-radius: 20px">-->
-<!--              <h4 class="d-flex justify-content-center">All Users</h4>-->
-<!--              <p class="d-flex justify-content-center", style="color: #9FA0A3">Having more than 10 posts, users</p>-->
+          <div class="d-flex justify-content-center">
+            <div style="background-color: #FFFFFF; padding: 50px; border-radius: 20px">
+              <h4 class="d-flex justify-content-center">All Users</h4>
+              <p class="d-flex justify-content-center" , style="color: #9FA0A3">Having more than 10 posts, users</p>
 
-<!--              <div class="my-5">-->
-<!--                <form name="forms">-->
-<!--                  <div class="d-flex">-->
-<!--                    <div style="margin-left: 20px">-->
-<!--                      <input type="radio" name="download" value="excel" id="download_excel">-->
-<!--                      <label for="download_excel" style="">Excel</label>-->
-<!--                    </div>-->
-<!--                    <div style="padding-left: 80px">-->
-<!--                      <input type="radio" name="download" value="csv" id="download_csv">-->
-<!--                      <label for="download_csv" style="">CSV</label>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <br>-->
-<!--                  <div class="my-5 d-flex justify-content-center">-->
-<!--                    <input type="button" value="Download" id="download_btn" class="btn btn-primary px-5 py-2">-->
-<!--                  </div>-->
-<!--                </form>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
+              <div class="my-5">
+                <form name="forms">
+                  <div class="d-flex">
+                    <div style="margin-left: 20px">
+                      <input type="radio" name="download" value="excel" id="limited_excel">
+                      <label for="limited_excel" style="">Excel</label>
+                    </div>
+                    <div style="padding-left: 80px">
+                      <input type="radio" name="download" value="csv" id="limited_csv" checked>
+                      <label for="limited_csv" style="">CSV</label>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="my-5 d-flex justify-content-center">
+                    <input type="button" value="Download" id="limited_btn" class="btn btn-primary px-5 py-2">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div>
           <div class="d-flex justify-content-center">
@@ -157,7 +157,7 @@
           <div class="d-flex justify-content-center">
             <div style="background-color: #FFFFFF; padding: 50px; border-radius: 20px">
               <h4 class="d-flex justify-content-center">Post-wise reports</h4>
-              <p class="d-flex justify-content-center", style="color: #9FA0A3">Title/description, comments, likes</p>
+              <p class="d-flex justify-content-center" , style="color: #9FA0A3">Title/description, comments, likes</p>
 
               <div class="my-5">
                 <form name="forms">
@@ -167,7 +167,7 @@
                       <label for="post_excel" style="">Excel</label>
                     </div>
                     <div style="padding-left: 80px">
-                      <input type="radio" name="download" value="csv" id="post_csv">
+                      <input type="radio" name="download" value="csv" id="post_csv" checked>
                       <label for="post_csv" style="">CSV</label>
                     </div>
                   </div>
@@ -188,35 +188,55 @@
 </div>
 
 <script>
-  let xls = document.getElementById('download_excel')
-  let csv = document.getElementById('download_csv')
-  let btn = document.getElementById('download_btn')
+    let xls = document.getElementById('download_excel')
+    let csv = document.getElementById('download_csv')
+    let btn = document.getElementById('download_btn')
+    let errorMsgUser = document.getElementById('msg_user')
 
-  btn.onclick = myFunction
+    btn.onclick = myFunction
 
-  function myFunction() {
-      if(xls.checked) {
-          open('/members.xls');
-      } else {
-          open('/members.csv')
-      }
-  }
+    function myFunction() {
+        if (xls.checked) {
+            open('/members.xls');
+        } else {
+            open('/members.csv')
+        }
+    }
 </script>
 
 <script>
-  let xlsPost = document.getElementById('post_excel')
-  let csvPost = document.getElementById('post_csv')
-  let btnPost = document.getElementById('post_btn')
+    let xlsLimited = document.getElementById('limited_excel')
+    let csvLimited = document.getElementById('limited_csv')
+    let btnLimited = document.getElementById('limited_btn')
+    let errorMsgLimit = document.getElementById('msg_limit')
 
-  btnPost.onclick = myFunction
+    btnLimited.onclick = myFunction
 
-  function myFunction() {
-      if(xls.checked) {
-          open('/posts.xls');
-      } else {
-          open('/posts.csv')
-      }
-  }
+    function myFunction() {
+        if (xlsLimited.checked) {
+            open('/limited_report.xls');
+        } else {
+            open('/limited_report.csv')
+        }
+    }
 </script>
+
+<script>
+    let xlsPost = document.getElementById('post_excel')
+    let csvPost = document.getElementById('post_csv')
+    let btnPost = document.getElementById('post_btn')
+    let errorMsgPost = document.getElementById('msg_post')
+
+    btnPost.onclick = myFunction
+
+    function myFunction() {
+        if (xlsPost.checked) {
+            open('/posts.xls');
+        } else {
+            open('/posts.csv')
+        }
+    }
+</script>
+
 
 

@@ -38,4 +38,18 @@ class User < ApplicationRecord
     end
   end
 
+  def self.to_csv_limited
+    CSV.generate(headers: true) do |csv|
+      headers = ['Name', 'Posts', 'Comments', 'Likes']
+      CSV.generate_line headers
+      csv << headers
+
+      all.each do |user|
+        if user.posts.length >= 10
+          csv << [name = "#{user['name']} #{user['lname']}", user.posts.length, user.comments.length, user.likes.length]
+        end
+      end
+    end
+  end
+
 end

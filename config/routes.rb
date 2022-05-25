@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
   get 'posts/report', to: 'members#report', as: 'report'
-  # get 'posts/demo', to: 'posts#demo', as: 'demo'
+  get 'limited_report', to: 'members#limited_report', as: 'limited_report'
 
   resources :posts do
     resources :comments

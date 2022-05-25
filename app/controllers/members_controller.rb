@@ -14,6 +14,15 @@ class MembersController < ApplicationController
     end
   end
 
+  def limited_report
+    @users = User.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @users.to_csv_limited }
+      format.xls { send_data @users.to_csv_limited }
+    end
+  end
+
 
 
   def edit
