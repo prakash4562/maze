@@ -6,6 +6,12 @@ class PostsController < ApplicationController
     def demo
 
     end
+
+    def import
+      Post.import(params[:file])
+      redirect_to root_url #, flash[:notice] =  "Posts has been imported successfully."
+    end
+
   def index
     @post = Post.new
     if current_user.roles.first.name == "admin"

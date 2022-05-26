@@ -25,6 +25,8 @@ class MembersController < ApplicationController
 
 
 
+
+
   def edit
     if current_user.roles.first.name == "admin"
       @user = User.find(params[:id])
@@ -47,6 +49,7 @@ class MembersController < ApplicationController
       @user = User.new(user_params)
       @user.add_role params[:roles]
       if @user.save!
+        UserMailer.with(user: @user).welcome_email.deliver_later
         redirect_to posts_path
       else
         redirect_to new

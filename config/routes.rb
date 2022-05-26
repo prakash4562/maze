@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
   resources :members do
     member do
-    patch :ban
-    get :ban
+      patch :ban
+      get :ban
     end
   end
   get 'posts/report', to: 'members#report', as: 'report'
   get 'limited_report', to: 'members#limited_report', as: 'limited_report'
 
   resources :posts do
+    collection { post :import }
     resources :comments
   end
 
   resources :likes, only: [:create, :destroy]
-
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

@@ -26,17 +26,20 @@ class User < ApplicationRecord
     self.add_role(:newuser) if self.roles.blank?
   end
 
-  def self.to_csv
-    CSV.generate(headers: true) do |csv|
-      headers = ['Name', 'Posts', 'Comments', 'Likes']
-      CSV.generate_line headers
-      csv << headers
+  # def self.to_csv
+  #   CSV.generate(headers: true) do |csv|
+  #     headers = ['Name', 'Posts', 'Comments', 'Likes']
+  #     CSV.generate_line headers
+  #     csv << headers
+  #
+  #     all.each do |user|
+  #       csv << [name = "#{user['name']} #{user['lname']}", user.posts.length, user.comments.length, user.likes.length]
+  #     end
+  #   end
+  # end
 
-      all.each do |user|
-        csv << [name = "#{user['name']} #{user['lname']}", user.posts.length, user.comments.length, user.likes.length]
-      end
-    end
-  end
+
+
 
   def self.to_csv_limited
     CSV.generate(headers: true) do |csv|
@@ -49,6 +52,12 @@ class User < ApplicationRecord
           csv << [name = "#{user['name']} #{user['lname']}", user.posts.length, user.comments.length, user.likes.length]
         end
       end
+    end
+  end
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      User.create! row.to_hash
     end
   end
 
