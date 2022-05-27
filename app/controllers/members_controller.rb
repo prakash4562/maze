@@ -1,6 +1,17 @@
 class MembersController < ApplicationController
   before_action :authenticate_user!
 
+
+  def upload
+
+  end
+
+  def import
+    User.import(params[:file])
+    UserMailer.with(user: @user).welcome_email.deliver_later
+    redirect_to members_path #, flash[:notice] =  "Posts has been imported successfully."
+  end
+
   def index
     if current_user.roles.first.name == "admin"
       @users = User.order(created_at: :desc)
@@ -22,10 +33,6 @@ class MembersController < ApplicationController
       format.xls { send_data @users.to_csv_limited }
     end
   end
-
-
-
-
 
   def edit
     if current_user.roles.first.name == "admin"
@@ -49,7 +56,7 @@ class MembersController < ApplicationController
       @user = User.new(user_params)
       @user.add_role params[:roles]
       if @user.save!
-        UserMailer.with(user: @user).welcome_email.deliver_later
+        UserMailer.with(user: @user).welcome_email.deliver_now
         redirect_to posts_path
       else
         redirect_to new

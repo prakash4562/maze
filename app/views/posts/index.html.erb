@@ -73,13 +73,13 @@
               <input style="margin-left: 10px; padding-left: 40px; border-radius: 10px;" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search for something here...">
             </div>
           </div>
-<div>
-        <h3>Import posts</h3>
-        <%= form_tag import_posts_path, multipart: true do %>
-        <%= file_field_tag :file %>
-          <%= submit_tag "Import" %>
-        <% end %>
-      </div>
+<!--          <div>-->
+<!--            <h3>Import posts</h3>-->
+            <%#= form_tag import_posts_path, multipart: true do %>
+              <%#= file_field_tag :file %>
+              <%#= submit_tag "Import" %>
+            <%# end %>
+<!--          </div>-->
 
           <%#= search_form_for @q, url: :posts do |form| %>
           <!--        <div style="margin: 5px 10px">-->
