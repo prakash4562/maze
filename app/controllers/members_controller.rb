@@ -1,7 +1,6 @@
 class MembersController < ApplicationController
   before_action :authenticate_user!
 
-
   def upload
 
   end
@@ -18,7 +17,7 @@ class MembersController < ApplicationController
       respond_to do |format|
         format.html
         format.csv { send_data @users.to_csv }
-        format.xls { send_data @users.to_csv }
+        format.xlsx
       end
     else
       redirect_to posts_path
@@ -27,10 +26,11 @@ class MembersController < ApplicationController
 
   def limited_report
     @users = User.all
+
     respond_to do |format|
       format.html
       format.csv { send_data @users.to_csv_limited }
-      format.xls { send_data @users.to_csv_limited }
+      format.xlsx
     end
   end
 

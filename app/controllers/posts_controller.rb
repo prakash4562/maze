@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     respond_to do |format|
         format.html
         format.csv { send_data @posts.to_csv }
-        format.xls { send_data @posts.to_csv }
+        format.xlsx
     end
 
     # @q = Post.ransack(params[:q])

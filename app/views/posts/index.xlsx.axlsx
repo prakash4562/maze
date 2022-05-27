@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Posts") do |sheet|
+   sheet.add_row %w(Title Content Comments Likes)
+
+  @posts.each do |post|
+    sheet.add_row [post.title, post.content, post.comments.length, post.likes.length]
+  end
+end
