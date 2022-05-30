@@ -71,5 +71,6 @@ class User < ApplicationRecord
       User.create! row.to_hash
     end
   end
-
 end
+
+

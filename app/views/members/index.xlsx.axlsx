@@ -1,8 +1,8 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "Users") do |sheet|
-   sheet.add_row %w(Name Email Number Posts Comments Likes)
+   sheet.add_row %w(Name Posts Comments Likes)
 
   @users.each do |user|
-    sheet.add_row [user.name, user.email, user.number, user.posts.length, user.comments.length, user.likes.length]
+    sheet.add_row [user.name, user.posts.length, user.comments.length, user.likes.length]
   end
 end

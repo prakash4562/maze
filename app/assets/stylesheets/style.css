@@ -48,3 +48,11 @@
     backdrop-filter: blur(42px);
     border-radius: 16px;
 }
+
+.notice_msg{
+    position: absolute;
+}
+
+.alert_msg{
+    position: absolute;
+}

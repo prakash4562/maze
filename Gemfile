@@ -79,3 +79,5 @@ gem "rolify"
 gem 'ransack'
 
 gem 'axlsx_rails'
+
+gem 'roo'
