@@ -78,6 +78,9 @@ gem "rolify"
 
 gem 'ransack'
 
-gem 'axlsx_rails'
+gem 'caxlsx_rails'
 
 gem 'roo'
+gem 'roo-xls'
+
+gem 'simple_xlsx_reader'

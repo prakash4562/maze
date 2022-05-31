@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :members, except: [:show] do
     collection { post :import }
     member do
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
       get :ban
     end
   end
+
 
   get 'members/upload', to: 'members#upload', as: 'upload_users'
 

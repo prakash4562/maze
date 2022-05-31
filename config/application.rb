@@ -2,7 +2,7 @@ require_relative "boot"
 
 require "rails/all"
 require 'csv'
-require 'kconv'
+require 'simple_xlsx_reader'
 
 
 # Require the gems listed in Gemfile, including any gems
