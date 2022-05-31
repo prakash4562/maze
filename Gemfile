@@ -78,6 +78,8 @@ gem "rolify"
 
 gem 'ransack'
 
-gem 'axlsx_rails'
-
 gem 'roo'
+
+gem 'rubyzip'
+
+gem 'axlsx_rails'

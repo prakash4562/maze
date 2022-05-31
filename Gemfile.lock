@@ -266,6 +266,7 @@ DEPENDENCIES
   ransack
   rolify
   roo
+  rubyzip
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)

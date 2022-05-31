@@ -50,8 +50,6 @@ class User < ApplicationRecord
   #   end
   # end
 
-
-
   def self.to_csv_limited
     CSV.generate(headers: true) do |csv|
       headers = ['Name', 'Posts', 'Comments', 'Likes']
@@ -66,11 +64,38 @@ class User < ApplicationRecord
     end
   end
 
-  def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-      User.create! row.to_hash
-    end
+  # def self.import(file)
+  #   CSV.foreach(file.path, headers: true) do |row|
+  #     User.create! row.to_hash
+  #   end
+  # end
+
+  def self.open_spreadsheet(file)
+  case File.extname(file.original_filename)
+  when '.csv' then Roo::Spreadsheet.open(file)
+  # when '.xls' then Roo::Excel.new("file")
+  when '.xlsx' then Roo::Spreadsheet.open(file)
+  else raise "Unknown file type: #{file.original_filename}"
   end
+  end
+
+    def self.import(file)
+      spreadsheet = open_spreadsheet(file)
+      header = spreadsheet.row(1)
+      (2..spreadsheet.last_row).each do |i|
+        row = Hash[[header, spreadsheet.row(i)].transpose]
+        user = find_by_id(row["id"]) || new
+        user.attributes = row.to_hash.slice(*row.to_hash.keys)
+        user.save!
+      end
+    end
+
+  # def self.import(file)
+  #   CSV.foreach(file.path, headers: true) do |row|
+  #     User.create! row.to_hash
+  #   end
+  # end
+
 end
 
 

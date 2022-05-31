@@ -30,7 +30,6 @@ class MembersController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @users.to_csv_limited }
-      format.xlsx
     end
   end
 
