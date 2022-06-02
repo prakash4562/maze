@@ -83,3 +83,5 @@ gem 'roo'
 gem 'rubyzip'
 
 gem 'axlsx_rails'
+
+gem 'sidekiq'

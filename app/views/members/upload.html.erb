@@ -92,7 +92,7 @@
         <div style="border: 2px solid grey; height: 400px; width: 800px; background-color: white; border-radius: 10px; margin-top: 60px; margin-left: 170px; margin-bottom: 30px">
           <h4 style="margin-top: 20px; margin-left: 20px;">Upload file</h4>
           <div style="margin-left: 170px; margin-top: 120px;">
-            <%= file_field_tag :file, style: "width: 420px; height: 100px; opacity: 0;" %>
+            <%= file_field_tag :file, style: "width: 420px; height: 100px; opacity: 0;", accept: ".xlsx" %>
             <div style="margin-top: -100px">
               <%= image_tag 'photos/upload_bc.png' %>
               <%= image_tag 'photos/upload1.png', style: "margin-left: -425px;" %>

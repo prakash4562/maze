@@ -1,13 +1,14 @@
 class MembersController < ApplicationController
   before_action :authenticate_user!
 
+
   def upload
 
   end
 
   def import
-    User.import(params[:file])
-    UserMailer.with(user: @user).welcome_email.deliver_later
+    TaskLoggerJob.perform_now(params[:file])
+    # UserMailer.with(user: @user).welcome_email.deliver_later
     redirect_to members_path #, flash[:notice] =  "Posts has been imported successfully."
   end
 

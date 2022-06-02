@@ -9,12 +9,14 @@
 
       <div style="padding-top: 40px">
         <div style="margin: 30px auto 20px; margin-left: 30px">
+          <%= button_tag class: 'btn btn-primary p-3' do %>
           <%= link_to posts_path do %>
             <div class="d-flex " style="height: 15px; padding-left: 20px;">
               <%= image_tag 'icons/feed.png', style: "padding-right: 20px;" %>
               <%= image_tag 'photos/feed.png' %>
             </div>
           <% end %>
+            <% end %>
         </div>
 
         <div style="margin: 30px; padding: 20px; padding-top: 30px">
